@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Product List</title>
+    <style>
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr); /* 4 columns */
+            gap: 10px; /* space between grid items */
+        }
+        .grid-item {
+            text-align: center; /* Center content */
+        }
+        .grid-item img {
+            max-width: 100%; /* Responsive image */
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="grid-container">
+        {% for product in products %}
+            <div class="grid-item">
+                <img src="{{ product.image.url }}" alt="{{ product.name }}">
+                <h3>{{ product.name }}</h3>
+                <p>${{ product.price }}</p>
+            </div>
+        {% endfor %}
+    </div>
+</body>
+</html>
+
